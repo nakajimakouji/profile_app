@@ -1,0 +1,17 @@
+<div class="top">
+  <p> 新規登録</p>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @user, local: true, url: signup_path) do |f| %>
+      
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+      
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+            
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
