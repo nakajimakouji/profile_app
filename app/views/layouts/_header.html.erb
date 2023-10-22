@@ -3,7 +3,13 @@
     <%= link_to " My Portfolio", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+        <li>
+          <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
+        </li>
+      <% else %>
         <li><%= link_to "ログイン", '#' %></li>
+      <% end %>
       </ul>
     </nav>
   </div>
