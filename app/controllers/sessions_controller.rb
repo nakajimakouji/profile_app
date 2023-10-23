@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to root_path
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'ログインに失敗しました'
       render 'static_pages/home', status: :unprocessable_entity
     end
   end
