@@ -1,2 +1,20 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="top">
+  <p>自己紹介を編集する</p>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>自己紹介文</p>
+    <%= form_with(model: @user, local: true, url:@user ) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.text_field :profile_text %>
+      <%# TODO: ボーダーラインを入れる %>
+      <p>50文字以上、200文字未満で入力してください</p>
+
+      <%# TODO: 「アバター画像」
+          「画像ファイルを添付する」ボタンを表示 %>
+
+      <%= f.submit "自己紹介を確定する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
