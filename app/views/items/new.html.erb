@@ -10,7 +10,6 @@
       <%= f.text_field :name, class: "form-control" %>
       
       <%= f.label :study_time, "学習時間" %>
-      <%# f.text_field :study_time %>
       <%= f.select :study_time, (0..10).map { |i| ["#{i * 10}", i * 10] }, { include_blank: true }, class: "form-control" %>
       <p>分単位で入力してください</p>
 
