@@ -1,6 +1,6 @@
 <% @categories.each do |category| %>
   <%= category.name %>
-  <%= link_to "項目を追加する", "#", class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
+  <%= link_to "項目を追加する", new_category_item_path(category), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
   <table class="table table-hover" border="1" style="border-collapse: collapse;">
   <thead>
     <tr class=" table-header">
