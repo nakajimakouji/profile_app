@@ -21,7 +21,7 @@
         <%= item.name %>
       </td>
       <td class="text-center">
-        <%= select_tag "study_time", options_for_select((0..10).map { |i| ["#{i * 10} ", i * 10] }, item.study_time), class: "form-control" %>
+        <%= select_tag "study_time", options_for_select((0..5000).map { |i| ["#{i * 1} ", i * 1] }, item.study_time), class: "form-control" %>
       </td>
       <td class="text-center">
         <%= link_to "学習時間を保存する", "#", class: "btn btn-primary btn-sm" %>
