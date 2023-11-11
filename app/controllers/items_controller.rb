@@ -8,5 +8,6 @@ class ItemsController < ApplicationController
   def new
     @category = Category.find_by(id: params[:category_id])
     @item = Item.new
+    @month = params[:month]
   end
 end
