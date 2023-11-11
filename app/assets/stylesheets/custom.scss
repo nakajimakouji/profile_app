@@ -49,16 +49,18 @@ ul {
 footer {
   margin-top: 45px;
   padding-top: 5px;
+  padding-bottom: 5px;
   color: #777;
   width: 100%;
   background-color: #374e93;
-  position: absolute;
+  position: relative;
   /*←絶対位置*/
   bottom: 0;
   /*下に固定*/
 }
 
 footer p {
+  margin: 10px 0;
   color: #fff;
   text-align: center;
 }
