@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @categories = Category.all
+    @month = params[:month]
   end
 
   def new
