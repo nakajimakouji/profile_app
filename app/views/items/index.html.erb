@@ -5,7 +5,7 @@
 <% end %>
 <% @categories.each do |category| %>
   <%= category.name %>
-  <%= link_to "項目を追加する", new_category_item_path(category), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
+  <%= link_to "項目を追加する", new_category_item_path(category, month: @month), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
   <table class="table table-hover" border="1" style="border-collapse: collapse;">
   <thead>
     <tr class=" table-header">
@@ -26,7 +26,7 @@
         <%= item.name %>
       </td>
       <td class="text-center">
-        <%= select_tag "study_time", options_for_select((0..10).map { |i| ["#{i * 10} ", i * 10] }, item.study_time), class: "form-control" %>
+        <%= select_tag "study_time", options_for_select((0..5000).map { |i| ["#{i * 1} ", i * 1] }, item.study_time), class: "form-control" %>
       </td>
       <td class="text-center">
         <%= link_to "学習時間を保存する", "#", class: "btn btn-primary btn-sm" %>
