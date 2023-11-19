@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @category = Category.find_by(id: params[:category_id])
-    @month = params[:month]
+    @month = params[:item][:month]
     @item = current_user.items.build(item_params.merge(category: @category))
     if @item.save
       flash[:success] = "項目追加に成功しました"
