@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
       redirect_to items_url(month: @item.month)
     else
       flash.now[:danger] = "項目追加に失敗しました"
-      @month = params[:item][:month] 
       render 'new', status: :unprocessable_entity
     end
   end
