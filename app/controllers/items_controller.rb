@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params.merge(category: @category))
     if @item.save
       flash[:success] = "項目追加に成功しました"
-      redirect_to items_url(month: @item.month)
+      redirect_to items_url(month: @month)
     else
       flash.now[:danger] = "項目追加に失敗しました"
       render 'new', status: :unprocessable_entity
