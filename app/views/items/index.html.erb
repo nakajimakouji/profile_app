@@ -7,35 +7,41 @@
   <%= category.name %>
   <%= link_to "項目を追加する", new_category_item_path(category, month: @month), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
   <table class="table table-hover" border="1" style="border-collapse: collapse;">
-  <thead>
-    <tr class=" table-header">
-      <th class="text-left" width="35%">
-        項目名
-      </th>
-      <th class="text-center" width="30%">
-        学習時間
-      </th>
-      <th class="text-center" width="20%"></th>
-      <th class="text-center" width="15%"></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% category.items.where(month: @month).each do |item| %>
-    <tr>
-      <td scope="row" style="vertical-align: middle;">
-        <%= item.name %>
-      </td>
-      <td class="text-center">
-        <%= select_tag "study_time", options_for_select((0..5000).map { |i| ["#{i * 1} ", i * 1] }, item.study_time), class: "form-control" %>
-      </td>
-      <td class="text-center">
-        <%= link_to "学習時間を保存する", "#", class: "btn btn-primary btn-sm" %>
-      </td>
-      <td class="text-center">
-        <%= link_to "削除する", "#", class: "btn btn-primary btn-sm" %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <thead>
+      <tr class=" table-header">
+        <th class="text-left" width="35%">
+          項目名
+        </th>
+        <th class="text-center" width="30%">
+          学習時間
+        </th>
+        <th class="text-center" width="20%"></th>
+        <th class="text-center" width="15%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% category.items.where(month: @month).each do |item| %>
+        <tr>
+          <td scope="row" style="vertical-align: middle;">
+            <%= item.name %>
+          </td>
+          <%= form_with(model: item, local: true, url:category_item_path(category, item), data: { turbo: false }) do |f| %>
+            <td class="text-center">
+              <%= f.select :study_time, (0..5000).map { |i| ["#{i * 1}", i * 1] }, { include_blank: true }, class: "form-control" %>
+            </td>
+            <td class="text-center">
+              <%= f.submit "学習時間を保存する", class: "btn btn-primary btn-sm" %>
+            </td>
+            
+            <%= f.hidden_field :month, value: @month, class: "form-control" %>
+            <%= f.hidden_field :name, value: item.name, class: "form-control" %>
+            
+            <td class="text-center">
+              <%= link_to "削除する", "#", class: "btn btn-primary btn-sm" %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

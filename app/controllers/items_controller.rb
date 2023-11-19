@@ -24,6 +24,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @month = params[:item][:month]
+    @item = Item.find_by(id: params[:id])
+    @item.assign_attributes(item_params)
+    if @item.save
+      flash[:success] = "更新に成功しました"
+      redirect_to items_url(month: @month)
+    else
+      flash.now[:danger] = "更新に失敗しました"
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
   private
 
     def item_params
