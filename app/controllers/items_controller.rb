@@ -14,9 +14,10 @@ class ItemsController < ApplicationController
   def create
     @category = Category.find_by(id: params[:category_id])
     @month = params[:item][:month]
+    @study_time = params[:item][:study_time]
     @item = current_user.items.build(item_params.merge(category: @category))
     if @item.save
-      flash[:success] = "項目追加に成功しました"
+      flash[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
       redirect_to items_url(month: @month)
     else
       flash.now[:danger] = "項目追加に失敗しました"
