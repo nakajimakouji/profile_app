@@ -37,6 +37,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    month = params[:month]
+    item = Item.find_by(id: params[:id]).destroy!
+    flash[:success] = "#{item.name}を削除しました"
+    redirect_to items_url(month: month)
+  end
+
   private
 
     def item_params

@@ -32,10 +32,10 @@
             <td class="text-center">
               <%= f.submit "学習時間を保存する", class: "btn btn-primary btn-sm" %>
             </td>
-            <td class="text-center">
-              <%= link_to "削除する", "#", class: "btn btn-primary btn-sm" %>
-            </td>
           <% end %>
+          <td class="text-center">
+            <%= button_to "削除する", category_item_path(category, item, {month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
