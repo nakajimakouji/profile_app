@@ -24,6 +24,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find_by(id: params[:id])
+    month = @item.month
+    @item.assign_attributes(item_params)
+    if @item.save
+      flash[:success] = "#{@item.name}の学習時間を更新しました"
+      redirect_to items_url(month: month)
+    else
+      flash.now[:danger] = "#{@item.name}の学習時間更新に失敗しました"
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
   private
 
     def item_params
