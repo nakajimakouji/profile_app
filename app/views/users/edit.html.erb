@@ -11,8 +11,9 @@
       <%# TODO: ボーダーラインを入れる %>
       <p>50文字以上、200文字未満で入力してください</p>
 
-      <%# TODO: 「アバター画像」
-          「画像ファイルを添付する」ボタンを表示 %>
+      <span class="image">
+        <%= f.file_field :avatar_image %>
+      </span>
 
       <%= f.submit "自己紹介を確定する", class: "btn btn-primary" %>
     <% end %>

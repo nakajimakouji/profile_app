@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.avatar_image.attach(params[:user][:avatar_image])
     if @user.update(user_params)
       flash[:success] = "情報を変更しました"
       redirect_to root_path
@@ -37,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :profile_text)
+    params.require(:user).permit(:email, :password, :profile_text, :avatar_image)
   end
 end
