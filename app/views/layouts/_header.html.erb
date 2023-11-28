@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
         <li>
-          <%= button_to "ログアウト", logout_path, data: { "turbo-method": :delete }, class: "btn btn-primary" %>
+          <%= button_to "ログアウト", logout_path, method: :delete, class: "btn btn-primary" %>
         </li>
       <% else %>
         <li><%= button_to "ログイン", root_path, class: "btn btn-primary" %></li>
