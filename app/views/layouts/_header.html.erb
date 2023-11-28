@@ -1,14 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to " My Portfolio", '#', id: "logo" %>
+    <%= link_to " My Portfolio", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
         <li>
-          <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
+          <%= button_to "ログアウト", logout_path, data: { "turbo-method": :delete }, class: "btn btn-primary" %>
         </li>
       <% else %>
-        <li><%= link_to "ログイン", '#' %></li>
+        <li><%= button_to "ログイン", root_path, class: "btn btn-primary" %></li>
       <% end %>
       </ul>
     </nav>
