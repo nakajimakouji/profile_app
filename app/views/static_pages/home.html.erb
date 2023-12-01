@@ -6,6 +6,7 @@
     <% else %>
       <%= gravatar_for current_user %>
     <% end %>
+    <p><%= current_user.name %></p>
     <h2>自己紹介</h2>
     <%= current_user.profile_text %>
     <p><%= link_to "自己紹介を編集する", edit_user_path(current_user), class: "btn btn-primary" %></p>
