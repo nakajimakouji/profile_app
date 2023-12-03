@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # データベースが空の状態から実行
-User.create!(email: "hogehoge@example.com", password: "foobar1", password_confirmation: "foobar1", profile_text: "a" * 50)
+User.create!(name: "hogehoge", email: "hogehoge@example.com", password: "foobar1", password_confirmation: "foobar1", profile_text: "a" * 50)
 
 # カテゴリーが増えたら連動できる
 categories = ["バックエンド", "フロントエンド", "インフラ"]
