@@ -6,15 +6,12 @@ body {
 }
 
 .container {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
 }
 
-h1 {
-  text-align: center;
-  a {
-    color: #fff;
-  }
+h1 a {
+  color: #fff;
 }
 
 a {
@@ -24,6 +21,7 @@ a {
 
 a:hover {
   text-decoration: underline;
+  color: #1190b7;
 }
 
 form {
@@ -34,14 +32,39 @@ form {
   margin-bottom: 10px;
 }
 
-.btn {
-  width: 100%;
+.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  box-shadow: none;
+}
+
+form .btn {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
 }
 
 header {
   background-color: #374e93;
   color: #fff;
-  padding: 20px;
+}
+
+.header h1 {
+  text-align: left;
+  margin-left: 0;
+}
+
+header .btn {
+  background-color: #fff;
+  color: #333;
+  width: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+main .container {
+  width: 50%;
 }
 
 footer {
