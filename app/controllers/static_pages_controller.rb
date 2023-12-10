@@ -3,9 +3,9 @@ class StaticPagesController < ApplicationController
 
   def home
     if logged_in?
-      @back_end = generate_category_data(1)
-      @front_end = generate_category_data(2)
-      @infra = generate_category_data(3)
+      @back_end = generate_category_data(Category.find_by(name: "バックエンド"))
+      @front_end = generate_category_data(Category.find_by(name: "フロントエンド"))
+      @infra = generate_category_data(Category.find_by(name: "インフラ"))
     end
   end
 
