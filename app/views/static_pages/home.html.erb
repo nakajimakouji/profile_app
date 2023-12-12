@@ -1,4 +1,7 @@
 <% provide(:title, "ホーム画面") %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/chartkick@4" %>
+
 <main>
   <div class="container">
     <% if logged_in? %>
@@ -18,19 +21,28 @@
           </div>
         </div>
       </div>
+      <div class="chart">
+        <h2>学習チャート</h2>
+        <%= link_to "編集する", items_path(month: Time.now.month), class: "btn btn-primary" %>
+        <%= column_chart [
+        { name: "バックエンド", data: @back_end },
+        { name: "フロントエンド", data: @front_end },
+        { name: "インフラ", data: @infra }
+        ], height: "400px" %>
+      </div>
     <% else %>
       <div class="top">
-        <h2 class="text-center">ログイン</h2>
+        <p>ログイン</p>
       </div>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
             <%= f.label :email, "メールアドレス" %>
-            <%= f.email_field :email, :class => "form-control", :id => "email", :placeholder => "example@example.com" %>
+            <%= f.email_field :email %>
             
             <%= f.label :password, "パスワード" %>
-            <%= f.password_field :password, :class => "form-control", :id => "password", :placeholder => "password" %>
+            <%= f.password_field :password %>
 
             <%= f.submit "ログインする", class: "btn btn-primary" %>
             <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
