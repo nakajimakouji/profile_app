@@ -26,6 +26,9 @@ a:hover {
 
 form {
   margin-top: 20px;
+  margin: 0 auto;
+  width: 60%;
+  color: gray;
 }
 
 .form-group {
@@ -39,8 +42,37 @@ form {
   box-shadow: none;
 }
 
+.profile {
+  margin-top: 36px;
+  h2 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #000;
+  }
+}
+
+.avatar img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.user-profile {
+  padding: 12px 0;
+}
+
+.profile_text {
+  border-bottom: 1px solid #000;
+  resize: none;
+  overflow: hidden;
+}
+
+.image .form-control {
+  border: none;
+}
+
 form .btn {
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
   width: 50%;
 }
@@ -59,15 +91,16 @@ header .btn {
   background-color: #fff;
   color: #333;
   width: 100px;
+  margin: 18px 0;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-main .container {
-  width: 50%;
+.profile-image {
+  margin: 12px;
 }
-
 footer {
+  text-align: center;
   background-color: #374e93;
   color: #fff;
   padding: 20px;
