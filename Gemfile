@@ -7,6 +7,7 @@ ruby "3.2.2"
 gem "rails", "7.0.4.3"
 gem "image_processing", "1.12.2"
 gem "bootstrap-sass", "3.4.1"
+gem "chartkick"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails", "3.4.2"
