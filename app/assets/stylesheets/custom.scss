@@ -8,6 +8,27 @@ body {
 .container {
   width: 100%;
   margin: 0 auto;
+  position: relative;
+}
+
+.form-group.pull-down {
+  position: absolute;
+  left: 0;
+  top: 0; 
+}
+
+.category {
+  margin-top: 36px;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+h4 {
+  font-weight: bold;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #000;
+  width: 150px;
 }
 
 h1 a {
@@ -40,7 +61,6 @@ form {
 }
 
 .form-control {
-  margin-bottom: 20px;
   border: none;
   border-bottom: 1px solid #ccc;
   outline: none;
@@ -92,10 +112,15 @@ form {
   }
 }
 
-form .btn {
+form .button {
   margin: 20px auto;
   display: block;
   width: 50%;
+}
+
+form .delete {
+  width: 100%;
+  background-color: red;
 }
 
 header {
@@ -120,6 +145,7 @@ header .btn {
 .profile-image {
   margin: 12px;
 }
+
 footer {
   text-align: center;
   background-color: #374e93;
