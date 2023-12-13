@@ -24,8 +24,12 @@ a:hover {
   color: #1190b7;
 }
 
+.title {
+  margin:40px 0 40px 0;
+}
+
 form {
-  margin-top: 20px;
+  margin-top: 40px;
   margin: 0 auto;
   width: 60%;
   color: gray;
@@ -36,6 +40,7 @@ form {
 }
 
 .form-control {
+  margin-bottom: 20px;
   border: none;
   border-bottom: 1px solid #ccc;
   outline: none;
@@ -47,6 +52,16 @@ form {
   h2 {
     padding-bottom: 12px;
     border-bottom: 1px solid #000;
+  }
+}
+
+.chart {
+  margin-top: 36px;
+  h2 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #000;
+    width: 300px;
+    margin: 24px auto; 
   }
 }
 
@@ -67,12 +82,18 @@ form {
   overflow: hidden;
 }
 
-.image .form-control {
-  border: none;
+.image {
+  label {
+    margin-top: 24px;
+  }
+  .form-control {
+    margin-bottom: 36px;
+    border: none;
+  }
 }
 
 form .btn {
-  margin: 10px auto;
+  margin: 20px auto;
   display: block;
   width: 50%;
 }
