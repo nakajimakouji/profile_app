@@ -2,8 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <%# TODO: 最後にログインしているユーザー名が表示されるようにする %>
-        <p>user name's portfolio site</p>
+        <% if logged_in? %>
+          <p><%= "#{current_user.name}'s portfolio site" %></p>
+        <% end %>
       </div>
     </div>
   </div>
