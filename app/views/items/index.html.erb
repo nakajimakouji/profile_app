@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 <main>
   <div class="container">
     <%= form_tag(items_path, method: :get) do %>
@@ -8,7 +10,7 @@
     <% @categories.each do |category| %>
       <div class="category">
         <h4><%= category.name %></h4>
-        <%= link_to "項目を追加する", new_category_item_path(category, month: @month), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
+        <%= link_to "項目を追加する", new_category_item_path(category, month: @month), class: "btn btn-primary btn-sm", data: { turbo_frame: 'modal-frame', toggle: 'modal', target: '#myModal'  }, style: "float: right; margin-bottom: 10px; width: 20%;" %>
         <table class="table table-hover" border="1" style="border-collapse: collapse;">
           <thead>
             <tr class="table-header">
@@ -28,16 +30,16 @@
                 <td scope="row" style="vertical-align: middle;">
                   <%= item.name %>
                 </td>
-                <%= form_with(model: item, local: true, url:category_item_path(category, item), data: { turbo: false }) do |f| %>
+                <%= form_with(model: item, local: true, url:category_item_path(category, item), data: { turbo: false, action: "update:modal-frame" }) do |f| %>
                   <td class="text-center">
                     <%= f.select :study_time, (0..5000).map { |i| ["#{i * 1}", i * 1] }, { include_blank: true }, class: "pull-down form-control" %>
                   </td>
                   <td class="text-center">
-                    <%= f.submit "学習時間を保存する", class: "btn btn-primary btn-sm" %>
+                    <%= f.submit "学習時間を保存する", class: "btn btn-primary btn-sm", data: { turbo_frame: 'modal-frame' } %>
                   </td>
                 <% end %>
                 <td class="text-center">
-                  <%= button_to "削除する", category_item_path(category, item, {month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm delete" %>
+                  <%= button_to "削除する", category_item_path(category, item, {month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?", turbo_frame: 'modal-frame' }, class: "btn btn-primary btn-sm delete" %>
                 </td>
               </tr>
             <% end %>

@@ -17,11 +17,20 @@ class ItemsController < ApplicationController
     @study_time = params[:item][:study_time]
     @item = current_user.items.build(item_params.merge(category: @category))
     if @item.save
-      flash[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
-      redirect_to items_url(month: @month)
+      # flash[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
+      # redirect_to items_url(month: @month)
+      respond_to do |format|
+        format.html { flash[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
+        redirect_to items_url(month: @month) }
+        format.js # create.js.erb ビューファイルを返す
+      end
     else
-      flash.now[:danger] = "項目追加に失敗しました"
-      render 'new', status: :unprocessable_entity
+      # flash.now[:danger] = "項目追加に失敗しました"
+      # render 'new', status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :new }
+        format.js   { render partial: 'shared/errors', locals: { object: @item } }
+      end
     end
   end
 
