@@ -1,21 +1,28 @@
-<div class="top">
-  <p>自己紹介を編集する</p>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <p>自己紹介文</p>
-    <%= form_with(model: @user, local: true, url:@user ) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.text_field :profile_text %>
-      <%# TODO: ボーダーラインを入れる %>
-      <p>50文字以上、200文字未満で入力してください</p>
-
-      <span class="image">
-        <%= f.file_field :avatar_image %>
-      </span>
-
-      <%= f.submit "自己紹介を確定する", class: "btn btn-primary" %>
-    <% end %>
+<main>
+  <div class="container">
+    <div class="top">
+      <h2 class="title text-center">自己紹介を編集する</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_with(model: @user, local: true, url:@user ) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="form-group">
+            <%= f.label :profile_text, "自己紹介文" %>
+            <%= f.text_area :profile_text, :class => "form-control profile_text" %>
+            <p>50文字以上、200文字未満で入力してください</p>
+          </div>
+          <div class="form-group">
+            <span class="image">
+              <%= f.label :avatar_image, "アバター画像" %>
+              <%= f.file_field :avatar_image, :class => "form-control" %>
+            </span>
+          </div>
+          <div class="form-group">
+            <%= f.submit "自己紹介を確定する", class: "btn btn-primary button" %>
+          </div
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
+</main>

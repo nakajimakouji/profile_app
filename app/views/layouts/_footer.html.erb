@@ -1,4 +1,11 @@
 <footer>
-<%# TODO: 最後にログインしているユーザー名が表示されるようにする %>
-  <p>user name's portfolio site</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if logged_in? %>
+          <p><%= "#{current_user.name}'s portfolio site" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </footer>

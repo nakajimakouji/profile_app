@@ -1,21 +1,27 @@
-<div class="top">
-  <p> 新規登録</p>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @user, local: true, url: signup_path) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      
-      <%= f.label :name, "氏名" %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email %>
-      
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
-            
-      <%= f.submit "登録する", class: "btn btn-primary" %>
-    <% end %>
+<main>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2 class="title text-center">新規登録</h2>
+      <%= form_with(model: @user, local: true, url: signup_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "氏名" %>
+          <%= f.text_field :name, :class => "form-control", :id => "name", :placeholder => "アカデミー花子" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, :class => "form-control", :id => "email", :placeholder => "example@example.com" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, "パスワード" %>
+          <%= f.password_field :password, :class => "form-control", :id => "password", :placeholder => "password" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "登録する", class: "btn btn-primary button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+</main>
+
