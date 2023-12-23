@@ -19,3 +19,6 @@
     <% end %>
   </div>
 </div>
+<% if flash[:success].present? %>
+  <%= render 'confirm_modal', flash: flash %>
+<% end %>
