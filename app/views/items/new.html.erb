@@ -19,3 +19,7 @@
     <% end %>
   </div>
 </div>
+<%# debugger %>
+<% if flash[:success].present? %>
+  <%= render 'confirm_modal', flash: flash %>
+<% end %>

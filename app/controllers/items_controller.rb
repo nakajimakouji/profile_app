@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
     @study_time = params[:item][:study_time]
     @item = current_user.items.build(item_params.merge(category: @category))
     if @item.save
-      flash[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
-      redirect_to items_url(month: @month)
+      flash.now[:success] = "#{@category.name}に#{@item.name}を#{@study_time}分で追加しました！"
+      render 'new', status: :created
     else
       flash.now[:danger] = "項目追加に失敗しました"
       render 'new', status: :unprocessable_entity

@@ -28,9 +28,9 @@
                 <td scope="row" style="vertical-align: middle;">
                   <%= item.name %>
                 </td>
-                <%= form_with(model: item, local: true, url:category_item_path(category, item), data: { turbo: false }) do |f| %>
+                <%= form_with(model: item, local: true, url:category_item_path(category, item)) do |f| %>
                   <td class="text-center">
-                    <%= f.select :study_time, (0..5000).map { |i| ["#{i * 1}", i * 1] }, { include_blank: true }, class: "pull-down form-control" %>
+                    <%= f.select :study_time, (0..5).map { |i| ["#{i * 1}", i * 1] }, { include_blank: true }, class: "pull-down form-control" %>
                   </td>
                   <td class="text-center">
                     <%= f.submit "学習時間を保存する", class: "btn btn-primary btn-sm" %>
@@ -47,3 +47,7 @@
     <% end %>
   </div>
 </main>
+
+<% if flash.present? %>
+  <%= render 'confirm_modal' %>
+<% end %>

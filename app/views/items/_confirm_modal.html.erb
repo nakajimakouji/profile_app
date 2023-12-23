@@ -1,0 +1,13 @@
+<div class="sample-popup-window">
+  <div class="sample-popup-background"></div>
+  <div class="sample-popup-box">
+    <div class="sample-popup-content">
+      <% flash.each do |message_type, message| %>
+        <div><%= message %></div>
+      <% end %>
+      <%= link_to items_path(month: Time.now.month) do%>
+        <label for="sample-popup-switch" class="sample-popup-close">アイテム一覧へ</label>
+      <% end %>
+    </div>
+  </div>
+</div>
