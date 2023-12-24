@@ -156,7 +156,7 @@ footer {
   width: 100%;
 }
 
-.sample-popup-background {
+.popup-background {
 	/* 画面全体を暗くする透過背景 */
 	position: fixed;
 	width: 100%;
@@ -167,11 +167,11 @@ footer {
 	z-index: 1000;
 }
 
-.sample-popup-content {
+.popup-content {
 	/* ポップアップ本体 */
 	display: inline-block;
 	position: fixed;
-	width: 75%;
+	width: 50%;
 	z-index: 1100;
 	background: #fff;
 	padding: 2%;
@@ -181,11 +181,11 @@ footer {
 	overflow-y: scroll;
 }
 
-.sample-popup-close {
+.popup-close {
 	/* ポップアップ内の閉じるボタン */
 	position: relative;
 	display: inline-block;
-	background: #09f;
+	background: #374e93;
 	color: #fff;
 	padding: 0 1em;
 	border-radius: 3px;
