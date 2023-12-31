@@ -1,0 +1,38 @@
+ ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        profile_text: 自己紹介文
+      item:
+        name: 項目名
+        study_time: 学習時間
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "を入力してください"
+              too_long: "%{count}文字以内で入力してください"
+            email:
+              blank: "を入力してください"
+              too_long: "%{count}文字以内で入力してください"
+              invalid: "が無効です"
+              taken: "はすでに使用されています"
+            password:
+              blank: "を入力してください"
+              invalid: "が無効です"
+              too_short: "%{count}文字以上で入力してください"
+            profile_text:
+              too_short: "を%{count}文字以上で入力してください"
+              too_long: "を%{count}文字以内で入力してください"
+        item:
+          attributes:
+            name:
+              blank: "を入力してください"
+              taken: "はすでに使用されています"
+            study_time:
+              blank: "を選択してください"
+              not_a_number: "を数値で入力してください"

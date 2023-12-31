@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(object.errors.count, "error") %>.
+      入力内容に <%= pluralize(object.errors.count, "つのエラーがあります") %>.
     </div>
     <ul>
     <%# TODO:エラーメッセージを日本語化する %>
