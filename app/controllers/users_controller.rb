@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  include SessionsHelper
 
   def new
     @user = User.new
