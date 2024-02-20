@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }, allow_nil: true
-  validates :profile_text, length: { minimum: 50, maximum: 199 }, allow_nil: true
+  validates :profile_text, length: { minimum: 50, maximum: 199 }, allow_blank: true
   validate :avatar_image_validation
 
   private
@@ -25,9 +25,9 @@ class User < ApplicationRecord
         avatar_image.purge # 不適切なファイルを削除
         errors.add(:avatar_image, 'はJPEGまたはPNG形式である必要があります。')
       end
-      if avatar_image.attached? && avatar_image.blob.byte_size > 1.megabyte
+      if avatar_image.attached? && avatar_image.blob.byte_size > 500.kilobyte
         avatar_image.purge # 大きすぎるファイルを削除
-        errors.add(:avatar_image, 'のサイズは1MB以下にしてください。')
+        errors.add(:avatar_image, 'のサイズは500KB以下にしてください。')
       end
     end
 end
