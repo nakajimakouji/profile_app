@@ -17,6 +17,11 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
+  config.after do |example|
+    if example.metadata[:type] == :system and example.exception
+        page.save_screenshot 'screenshot/テスト失敗時スクリーンショット.png'
+    end 
+  end
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

@@ -176,8 +176,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'コールバック' do
+    let(:user) { FactoryBot.create(:user, email: "HOGEHOGE@example.com") }
     it '大文字を含んだメールアドレスを入力して保存したら全て小文字に変換されること' do
-      user = FactoryBot.create(:user, email: "HOGEHOGE@example.com")
       expect(user.email).to eq "hogehoge@example.com"
     end
   end
