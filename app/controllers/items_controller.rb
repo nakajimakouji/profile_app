@@ -4,12 +4,14 @@ class ItemsController < ApplicationController
 
   def index
     @categories = Category.all
+    @year = params[:year]
     @month = params[:month]
   end
 
   def new
     @category = Category.find_by(id: params[:category_id])
     @item = Item.new
+    @year = params[:year]
     @month = params[:month]
   end
 

@@ -25,7 +25,7 @@
       </div>
       <div class="chart text-center">
         <h2>学習チャート</h2>
-        <%= link_to "編集する", items_path(month: Time.now.month), class: "btn btn-primary" %>
+        <%= link_to "編集する", items_path(year: Time.now.year, month: Time.now.month), class: "btn btn-primary" %>
         <%= column_chart [
         { name: "バックエンド", data: @back_end },
         { name: "フロントエンド", data: @front_end },
