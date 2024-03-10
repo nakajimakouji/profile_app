@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :system do
+  let(:user) { FactoryBot.create(:user) }
+  
   before do
     driven_by(:rack_test)
   end
@@ -11,7 +13,7 @@ RSpec.describe "StaticPages", type: :system do
   end
 
   scenario "ログイン画面でメールアドレスとパスワードを入力したらログインできること" do
-    user = FactoryBot.create(:user)
+    # user = FactoryBot.create(:user)
     visit root_path
     fill_in "メールアドレス", with: user.email
     fill_in "パスワード", with: user.password
