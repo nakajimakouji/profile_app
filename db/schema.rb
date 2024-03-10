@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_01_140559) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_10_014442) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,8 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_01_140559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "month", null: false
+    t.integer "year", default: 2024, null: false
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id", "category_id", "name", "month"], name: "index_items_on_user_id_and_category_id_and_name_and_month", unique: true
+    t.index ["user_id", "category_id", "name", "month", "year"], name: "index_items_on_user_category_name_month_year", unique: true
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
