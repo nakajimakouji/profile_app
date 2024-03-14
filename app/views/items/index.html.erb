@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <% category.items.where(month: @month, user: current_user).each do |item| %>
+            <% category.items.where(year: @year, month: @month, user: current_user).each do |item| %>
               <tr>
                 <td scope="row" style="vertical-align: middle;">
                   <%= item.name %>
@@ -41,7 +41,7 @@
                   </div>
                 </td>
                 <td class="text-center">
-                  <%= button_to "削除する", category_item_path(category, item, {month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm delete" %>
+                  <%= button_to "削除する", category_item_path(category, item, {year: @year, month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm delete" %>
                 </td>
               </tr>
             <% end %>
