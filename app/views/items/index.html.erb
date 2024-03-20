@@ -2,13 +2,14 @@
   <div class="container">
     <%= form_tag(items_path, method: :get) do %>
       <div class="form-group pull-down">
+        <%= select_tag 'year', options_for_select((2000..Time.now.year).map { |y| ["#{y}年", y] }, params[:year].to_i), onchange: 'this.form.submit();' %>
         <%= select_tag 'month', options_for_select((1..12).map { |m| ["#{m}月", m] }, params[:month].to_i), onchange: 'this.form.submit();' %>
       </div>
     <% end %>
     <% @categories.each do |category| %>
       <div class="category">
         <h4><%= category.name %></h4>
-        <%= link_to "項目を追加する", new_category_item_path(category, month: @month), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
+        <%= link_to "項目を追加する", new_category_item_path(category, year: @year, month: @month), class: "btn btn-primary btn-sm", style: "float: right; margin-bottom: 10px; width: 20%;" %>
         <table class="table table-hover">
           <thead>
             <tr class="table-header">
@@ -22,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <% category.items.where(month: @month, user: current_user).each do |item| %>
+            <% category.items.where(year: @year, month: @month, user: current_user).each do |item| %>
               <tr>
                 <td scope="row" style="vertical-align: middle;">
                   <%= item.name %>
@@ -40,7 +41,7 @@
                   </div>
                 </td>
                 <td class="text-center">
-                  <%= button_to "削除する", category_item_path(category, item, {month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm delete" %>
+                  <%= button_to "削除する", category_item_path(category, item, {year: @year, month: @month}), method: :delete, data: { turbo_confirm: "削除していいですか?" }, class: "btn btn-primary btn-sm delete" %>
                 </td>
               </tr>
             <% end %>

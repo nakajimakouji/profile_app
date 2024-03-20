@@ -5,7 +5,7 @@
       <% flash.each do |message_type, message| %>
         <div><%= message %></div>
       <% end %>
-      <%= link_to items_path(month: Time.now.month) do%>
+      <%= link_to items_path(year: Time.now.year, month: Time.now.month) do%>
         <label for="popup-switch" class="popup-close">
           <p>編集ページに戻る</p>
         </label>
