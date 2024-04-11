@@ -4,8 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     @categories = Category.all
-    @year = params[:year]
-    @month = params[:month]
+    @year = params[:year] || Time.now.year
+    @month = params[:month] || Time.now.month
+    @items = Item.search(params[:search], current_user, @year, @month)
   end
 
   def new
