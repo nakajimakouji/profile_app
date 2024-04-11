@@ -8,9 +8,9 @@ class Item < ApplicationRecord
   # 何を軸にするか（今回はname）
   validates :name, uniqueness: { scope: [:category_id, :year, :month, :user_id], message: "が被っています" }
 
-  def self.search(search, user_id)
-    items = where(user_id: user_id)
-    items = items.where("item.name LIKE ?", "%#{search}%") if search.present?
+  def self.search(search, user_id, year, month)
+    items = where(user_id: user_id, year: year, month: month)
+    items = items.where("name LIKE ?", "%#{search}%") if search.present?
     items
   end
 end

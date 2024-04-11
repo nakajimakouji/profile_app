@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     @categories = Category.all
     @year = params[:year] || Time.now.year
     @month = params[:month] || Time.now.month
-    @items = Item.search(params[:search], current_user.id)
+    @items = Item.search(params[:search], current_user, @year, @month)
   end
 
   def new
